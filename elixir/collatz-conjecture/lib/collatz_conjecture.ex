@@ -7,7 +7,6 @@ defmodule CollatzConjecture do
   """
   @spec calc(input :: pos_integer()) :: non_neg_integer()
   def calc(1), do: 0
-  def calc(input) when input <= 0, do: raise(FunctionClauseError)
-  def calc(input) when rem(input, 2) == 0, do: calc(div(input, 2)) + 1
-  def calc(input) when rem(input, 2) != 0, do: 1 + calc(input * 3 + 1)
+  def calc(i) when i > 0 and rem(i, 2) == 0, do: calc(div(i, 2)) + 1
+  def calc(i) when i > 0 and rem(i, 2) != 0, do: 1 + calc(i * 3 + 1)
 end
